@@ -9,7 +9,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Check out code
+            - name: Check out code popis
               uses: actions/checkout@v4
 
             - name: Setup .NET Core SDK
