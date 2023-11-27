@@ -26,6 +26,10 @@ jobs:
           name: app-artifact
           path: ./bin/Release/net8.0  # Zmeňte cestu na odpovedajúce umiestnenie výstupných súborov
 
+      - name: List files after archive
+        run: ls -R ./bin/Release/net8.0
+
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
