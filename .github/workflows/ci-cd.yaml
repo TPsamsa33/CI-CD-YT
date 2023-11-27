@@ -1,54 +1,54 @@
-name: CI-CD deplyment
+name: CI-CD deployment
 
 on:
-  push: 
+  push:
     branches:
-        - main
+      - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out2
-              uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
 
-            - name: Setup .NET Core SDK
-              uses: actions/setup-dotnet@v3.2.0
-              with:
-                dotnet-version: 8.0.x
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3.2.0
+        with:
+          dotnet-version: 8.0.x
 
-            - name: Restore dependencies 
-              run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
-            - name: Archive artifacts
-              uses: actions/upload-artifact@v3
-              with:
-                name: app-artifact
-                path: ./bin/Release/net8.0  # Zmeň cestu na odpovedajúce umiestnenie výstupných súborov
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-artifact
+          path: ./bin/Release/net8.0  # Zmeňte cestu na odpovedajúce umiestnenie výstupných súborov
 
-    deploy:
-                    needs: build
-                    runs-on: ubuntu-latest
-                    steps:
-                      - name: Download artifacts
-                        uses: actions/download-artifact@v3
-                        with:
-                          name: app-artifact
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: app-artifact
 
-                      - name: Create artifacts directory
-                        run: mkdir -p ./bin/Release/net8.0                          
+      - name: Create artifacts directory
+        run: mkdir -p ./bin/Release/net8.0
 
-                      - name: List files in directory
-                        run: ls -R ./bin/Release/net8.0                        
+      - name: List files in directory
+        run: ls -R ./bin/Release/net8.0
 
-                      - name: Check directory permissions
-                        run: ls -la ./bin/Release/net8.0
+      - name: Check directory permissions
+        run: ls -la ./bin/Release/net8.0
 
-                      - name: Create ZIP
-                        run: zip -r app-artifact.zip ./bin/Release/net8.0
+      - name: Create ZIP
+        run: zip -r app-artifact.zip -j ./bin/Release/net8.0/*
 
-                      - name: Upload ZIP
-                        uses: actions/upload-artifact@v3
-                        with:
-                          name: app-artifact.zip
-                          path: app-artifact.zip
+      - name: Upload ZIP
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-artifact.zip
+          path: app-artifact.zip
