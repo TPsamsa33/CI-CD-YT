@@ -21,7 +21,7 @@ jobs:
               run: dotnet restore
 
             - name: Archive artifacts
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
                 name: app-artifact
                 path: ./bin/Release/net8.0  # Zmeň cestu na odpovedajúce umiestnenie výstupných súborov
@@ -31,7 +31,7 @@ jobs:
                     runs-on: ubuntu-latest
                     steps:
                       - name: Download artifacts
-                        uses: actions/download-artifact@v2
+                        uses: actions/download-artifact@v3
                         with:
                           name: app-artifact
                 
@@ -39,7 +39,7 @@ jobs:
                         run: zip -r app-artifact.zip ./bin/Release/net8.0
 
                       - name: Upload ZIP
-                        uses: actions/upload-artifact@v2
+                        uses: actions/upload-artifact@v3
                         with:
                           name: app-artifact.zip
                           path: app-artifact.zip
