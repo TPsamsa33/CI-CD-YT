@@ -37,9 +37,9 @@ jobs:
                 
                       - name: Create ZIP
                         run: zip -r app-artifact.zip ./bin/Release/net8.0
-                        
+
                       - name: Upload ZIP
                         uses: actions/upload-artifact@v2
                         with:
-                          name: zipped-artifact.zip
+                          name: app-artifact.zip
                           path: app-artifact.zip
