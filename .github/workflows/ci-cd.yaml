@@ -36,8 +36,8 @@ jobs:
                           name: app-artifact
                 
                       - name: Create ZIP
-                        run: zip -r app-artifact.zip ./netcoreapp3.1
-                
+                        run: zip -r app-artifact.zip ./bin/Release/net8.0
+                        
                       - name: Upload ZIP
                         uses: actions/upload-artifact@v2
                         with:
