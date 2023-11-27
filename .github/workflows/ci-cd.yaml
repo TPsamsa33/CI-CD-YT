@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-artifact
-          path: ./bin/Release/net8.0  # Zmeňte cestu na odpovedajúce umiestnenie výstupných súborov
+          path: /WebApplication1test_ci_cd/bin/Release/net8.0  # Zmeňte cestu na odpovedajúce umiestnenie výstupných súborov
 
       - name: List files after archive
         run: ls -R /WebApplication1test_ci_cd/bin/Release/net8.0
