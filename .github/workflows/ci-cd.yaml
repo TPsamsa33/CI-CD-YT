@@ -24,10 +24,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-artifact
-          path: ./bin/Release/net8.0  # Opravená cesta
+          path: ./bin/Release/net8.0  # Update this path based on your project structure
 
       - name: List files after archive
-        run: ls -R ./bin/Release/net8.0  # Opravená cesta
+        run: ls -R ./bin/Release/net8.0  # Verify the path is correct
 
 
   deploy:
@@ -40,16 +40,16 @@ jobs:
           name: app-artifact
 
       - name: Create artifacts directory
-        run: mkdir -p ./bin/Release/net8.0  # Opravená cesta
+        run: mkdir -p ./bin/Release/net8.0  # Update this path based on your project structure
 
       - name: List files in directory
-        run: ls -R ./bin/Release/net8.0  # Opravená cesta
+        run: ls -R ./bin/Release/net8.0  # Verify the path is correct
 
       - name: Check directory permissions
-        run: ls -la ./bin/Release/net8.0  # Opravená cesta
+        run: ls -la ./bin/Release/net8.0  # Verify the path is correct
 
       - name: Create ZIP
-        run: zip -r app-artifact.zip ./bin/Release/net8.0/*  # Opravená cesta
+        run: zip -r app-artifact.zip ./bin/Release/net8.0/*  # Verify the path is correct
 
       - name: Upload ZIP
         uses: actions/upload-artifact@v3
