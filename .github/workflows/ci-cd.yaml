@@ -49,11 +49,6 @@ jobs:
       - name: List files after archiveB
         run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
 
-      - name: List files in directoryA
-        run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0/*  # Verify the path is correct
-
-
-
       - name: Check directory permissions
         run: ls -la ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
 
