@@ -1,15 +1,15 @@
 name: CI-CD deplyment
 
 on:
-    push: 
-        branches:
-            - main
+  push: 
+    branches:
+        - main
 
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Check out code popis
+            - name: Check out2
               uses: actions/checkout@v4
 
             - name: Setup .NET Core SDK
@@ -18,11 +18,5 @@ jobs:
                 dotnet-version: 8.0.x
 
             - name: Restore dependencies
-              run: dotnet restore
-
-            - name: Build app
-              run: dotnet build -c Release --no-restore
-
-              
-
+              run: dotnet restore
 
