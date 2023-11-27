@@ -41,5 +41,5 @@ jobs:
                       - name: Upload ZIP
                         uses: actions/upload-artifact@v2
                         with:
-                          name: zipped-artifact
+                          name: zipped-artifact.zip
                           path: app-artifact.zip
