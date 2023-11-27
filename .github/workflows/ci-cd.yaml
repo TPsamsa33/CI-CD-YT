@@ -34,7 +34,16 @@ jobs:
                         uses: actions/download-artifact@v3
                         with:
                           name: app-artifact
-                
+
+                      - name: Create artifacts directory
+                        run: mkdir -p ./bin/Release/net8.0                          
+
+                      - name: List files in directory
+                        run: ls -R ./bin/Release/net8.0                        
+
+                      - name: Check directory permissions
+                        run: ls -la ./bin/Release/net8.0
+
                       - name: Create ZIP
                         run: zip -r app-artifact.zip ./bin/Release/net8.0
 
