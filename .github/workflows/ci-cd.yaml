@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      - name: List repository contents
+        run: ls -R
+
       - name: Check out code
         uses: actions/checkout@v4
 
