@@ -27,7 +27,7 @@ jobs:
           path: ./bin/Release/net8.0  # Zmeňte cestu na odpovedajúce umiestnenie výstupných súborov
 
       - name: List files after archive
-        run: ls -R ./bin/Release/net8.0
+        run: ls -R /WebApplication1test_ci_cd/bin/Release/net8.0
 
 
   deploy:
@@ -40,16 +40,16 @@ jobs:
           name: app-artifact
 
       - name: Create artifacts directory
-        run: mkdir -p ./bin/Release/net8.0
+        run: mkdir -p /WebApplication1test_ci_cd/bin/Release/net8.0
 
       - name: List files in directory
-        run: ls -R ./bin/Release/net8.0
+        run: ls -R /WebApplication1test_ci_cd/bin/Release/net8.0
 
       - name: Check directory permissions
-        run: ls -la ./bin/Release/net8.0
+        run: ls -la /WebApplication1test_ci_cd/bin/Release/net8.0
 
       - name: Create ZIP
-        run: zip -r app-artifact.zip -j ./bin/Release/net8.0/*
+        run: zip -r app-artifact.zip -j /WebApplication1test_ci_cd/bin/Release/net8.0/*
 
       - name: Upload ZIP
         uses: actions/upload-artifact@v3
