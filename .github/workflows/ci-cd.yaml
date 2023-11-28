@@ -34,7 +34,7 @@ jobs:
         run: dotnet build -c Release --no-restore
 
       - name: List files after archive
-        run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
+        run: ls -liaR ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
 
 
   deploy:
