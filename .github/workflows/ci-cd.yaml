@@ -27,20 +27,20 @@ jobs:
       - name: Build app
         run: dotnet build -c Release --no-restore
 
-      - name: List files after archive
-        run: ls -liaR ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
-
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
           name: app-artifact
-          path: ./WebApplication1test_ci_cd/bin/Release/net8.0  # Update this path based on your project structure
+          path: ./WebApplication1test_ci_cd/bin/Release/net8.0
+
+      - name: List files after archive
+        run: ls -liaR ./WebApplication1test_ci_cd/bin/Release/net8.0       
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts1
+      - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
           name: app-artifact
@@ -48,14 +48,11 @@ jobs:
       - name: List downloaded files
         run: ls -liaR /home/runner/work/CI-CD-YT/CI-CD-YT
 
-      - name: Create artifacts directory
-        run: mkdir -p ./WebApplication1test_ci_cd/bin/Release/net8.0  # Update this path based on your project structure
-
-      - name: List files after archiveBC
-        run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
+      - name: List files in ../bin/Release/net8.0
+        run: ls -liaR ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
 
       - name: Check directory permissions
-        run: ls -la ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
+        run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
 
       - name: Create ZIP
         run: zip -r app-artifact.zip /home/runner/work/CI-CD-YT/CI-CD-YT  # Verify the path is correct
