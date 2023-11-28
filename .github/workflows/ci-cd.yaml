@@ -51,9 +51,6 @@ jobs:
       - name: List files in /home/runner/work/CI-CD-YT/CI-CD-YT/WebApplication1test_ci_cd/bin/Release/net8.0 
         run: ls -liaR /home/runner/work/CI-CD-YT/  # Verify the path is correct
 
-      - name: Check directory permissions
-        run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
-
       - name: Create ZIP
         run: zip -r app-artifact.zip /home/runner/work/CI-CD-YT/CI-CD-YT  # Verify the path is correct
 
