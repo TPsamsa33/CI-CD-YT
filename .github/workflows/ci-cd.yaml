@@ -38,7 +38,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts
+      - name: Download artifacts1
         uses: actions/download-artifact@v3
         with:
           name: app-artifact
