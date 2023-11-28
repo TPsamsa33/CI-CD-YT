@@ -30,6 +30,9 @@ jobs:
           name: app-artifact
           path: ./WebApplication1test_ci_cd/bin/Release/net8.0  # Update this path based on your project structure
 
+      - name: Build app
+        run: dotnet build -c Release --no-restore
+
       - name: List files after archive
         run: ls -R ./WebApplication1test_ci_cd/bin/Release/net8.0  # Verify the path is correct
 
